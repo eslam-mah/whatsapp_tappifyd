@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// A model class representing a user in the chat application.
 @immutable
 class UserModel {
-  /// The URL of the user's profile image.
+  /// The file of the user's profile image.
   ///
   /// This should be a valid URL string pointing to an image file.
   final String image;

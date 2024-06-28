@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 import 'package:whatsapp/features/chat/view/views/chat_page.dart';
-import 'package:whatsapp/features/home%20page/views/views/home_page.dart';
+import 'package:whatsapp/features/home%20page/views/home_page.dart';
 import 'package:whatsapp/features/select%20user/views/views/select_user_page.dart';
 
 abstract class Rout {
