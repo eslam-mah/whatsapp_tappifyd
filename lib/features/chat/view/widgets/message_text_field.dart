@@ -26,7 +26,8 @@ class MessageTextField extends StatelessWidget {
             child: TextField(
               controller: controller,
               maxLines: null,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
+                hintText: 'Message',
                 border: InputBorder.none,
               ),
             ),

@@ -20,7 +20,7 @@ class MyChatBubble extends StatelessWidget {
         padding: EdgeInsets.all(20.w),
         child: Text(
           message.text ?? '',
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
