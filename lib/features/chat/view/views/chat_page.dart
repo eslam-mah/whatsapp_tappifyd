@@ -3,12 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 import 'package:whatsapp/core/utils/images.dart';
-import 'package:whatsapp/core/utils/stream.dart';
+import 'package:whatsapp/core/services/stream.dart';
 import 'package:whatsapp/features/chat/view/widgets/app_bar_back_button.dart';
 import 'package:whatsapp/features/chat/view/widgets/friend_chat_bubble.dart';
+import 'package:whatsapp/features/chat/view/widgets/message_list.dart';
 import 'package:whatsapp/features/chat/view/widgets/message_text_field.dart';
 import 'package:whatsapp/features/chat/view/widgets/my_chat_bubble.dart';
 import 'package:whatsapp/features/chat/view/widgets/send_message_button.dart';
+import 'package:whatsapp/features/select%20user/data/model/user_model.dart';
+import 'package:whatsapp/features/select%20user/data/model/users.dart';
 
 class ChatPage extends StatefulWidget {
   final Channel channel;
@@ -56,14 +59,14 @@ class _ChatPageState extends State<ChatPage> {
                   GoRouter.of(context).pop();
                 },
                 child: AppBarBackButton(
-                  image: user?.image ?? '',
+                  image: user!.id == ahmed.id ? mohamed.image : ahmed.image,
                 ),
               ),
               SizedBox(
                 width: 10.w,
               ),
               Text(
-                user?.name ?? 'Unknown User',
+                user.id == ahmed.id ? mohamed.name : ahmed.name,
                 style: TextStyle(fontSize: 20.sp),
               ),
             ],
@@ -110,34 +113,6 @@ class _ChatPageState extends State<ChatPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class MessagesList extends StatelessWidget {
-  const MessagesList({
-    super.key,
-    required this.messages,
-  });
-
-  final List<Message> messages;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView.builder(
-        reverse: true,
-        itemCount: messages.length,
-        itemBuilder: (context, index) {
-          final message = messages[index];
-          if (message.user?.id == context.currentUser?.id) {
-            return MyChatBubble(message: message);
-          } else {
-            return FriendChatBubble(message: message);
-          }
-        },
       ),
     );
   }

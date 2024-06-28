@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
+import 'package:whatsapp/core/utils/routers.dart';
 
 import 'package:whatsapp/features/select%20user/data/model/users.dart';
 
-class ChatInitiationPage extends StatefulWidget {
-  const ChatInitiationPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<ChatInitiationPage> createState() => _ChatInitiationPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _ChatInitiationPageState extends State<ChatInitiationPage> {
+class _HomePageState extends State<HomePage> {
   bool isLoading = false;
 
   void disconnectUser(BuildContext context) {
@@ -33,7 +34,7 @@ class _ChatInitiationPageState extends State<ChatInitiationPage> {
 
       // Navigate to ChatPage with the channel
       GoRouter.of(context).push(
-        '/chat',
+        Rout.kChat,
         extra: channel,
       );
 
@@ -62,7 +63,7 @@ class _ChatInitiationPageState extends State<ChatInitiationPage> {
                   disconnectUser(context);
                   GoRouter.of(context).pop();
                 },
-                icon: Icon(Icons.door_back_door))
+                icon: Icon(Icons.door_back_door_outlined))
           ],
           title: Text('Initiate Chat'),
         ),

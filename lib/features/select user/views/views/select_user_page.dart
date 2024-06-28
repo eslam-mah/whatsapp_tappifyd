@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 import 'package:whatsapp/core/utils/images.dart';
+import 'package:whatsapp/core/utils/routers.dart';
 import 'package:whatsapp/features/select%20user/data/model/user_model.dart';
 import 'package:whatsapp/features/select%20user/data/model/users.dart';
 import 'package:whatsapp/features/select%20user/views/widgets/user_selector.dart';
@@ -30,7 +31,7 @@ class _SelectUserPageState extends State<SelectUserPage> {
 
       // Navigate to ChatInitiationPage with the current user
       GoRouter.of(context).push(
-        '/initiate-chat',
+        Rout.kHome,
         extra: user,
       );
 
