@@ -5,7 +5,6 @@ import 'package:whatsapp/features/home%20page/views/home_page.dart';
 import 'package:whatsapp/features/select%20user/views/views/select_user_page.dart';
 
 abstract class Rout {
-  static const kRegister = '/users';
   static const kChat = '/chat';
   static const kHome = '/Home';
 
