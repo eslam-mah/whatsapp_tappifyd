@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   ///
   /// Parameters:
   /// - [client]: The Stream chat client to connect the users to.
-  Future<void> _connectUsersAndStartChat(StreamChatClient client) async {
+  Future<void> _createChannelAndStartChat(StreamChatClient client) async {
     setState(() {
       isLoading = true;
     });
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
             /// Button to initiate chat between Ahmed and Mohamed.
             InkWell(
               onTap: () {
-                _connectUsersAndStartChat(client);
+                _createChannelAndStartChat(client);
               },
               child: UserSelector(
                 image: user!.id == ahmed.id ? mohamed.image : ahmed.image,
