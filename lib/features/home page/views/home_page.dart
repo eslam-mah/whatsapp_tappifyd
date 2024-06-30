@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   ///
   /// Parameters:
   /// - [context]: The build context of the widget.
-  void disconnectUser(BuildContext context) {
+  void _disconnectUser(BuildContext context) {
     StreamChatCore.of(context).client.disconnectUser();
   }
 
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             IconButton(
               onPressed: () {
-                disconnectUser(context);
+                _disconnectUser(context);
                 GoRouter.of(context).pop();
               },
               icon: const Icon(Icons.logout, color: Colors.red),

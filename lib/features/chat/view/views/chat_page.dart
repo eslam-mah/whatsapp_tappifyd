@@ -27,15 +27,10 @@ class _ChatPageState extends State<ChatPage> {
   /// Controller for the message input field.
   final TextEditingController controller = TextEditingController();
 
-  /// Disconnects the current user from the Stream chat.
-  void disconnectUser(BuildContext context) {
-    StreamChatCore.of(context).client.disconnectUser();
-  }
-
   /// Sends a message typed in the input field.
   ///
   /// This function sends a message to the current channel if the input field is not empty.
-  Future<void> sendMessage() async {
+  Future<void> _sendMessage() async {
     final messageText = controller.text.trim();
     if (messageText.isNotEmpty) {
       final message = Message(
@@ -121,7 +116,7 @@ class _ChatPageState extends State<ChatPage> {
 
                   /// Button for sending messages.
                   GestureDetector(
-                    onTap: sendMessage,
+                    onTap: _sendMessage,
                     child: const SendMessageButton(),
                   ),
                 ],
